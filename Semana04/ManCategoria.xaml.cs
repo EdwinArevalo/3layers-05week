@@ -60,13 +60,43 @@ namespace Semana04
             catch (Exception)
             {
 
-                MessageBox.Show("Cominarse con el administrador");
+                MessageBox.Show("Comunicarse con el administrador");
             }
             finally
             {
                 BCategoria = null;
             }
 
+        }
+
+        private void BtnEliminar_Click(Object sender, RoutedEventArgs e) 
+        {
+            BCategoria BCategoria = null;
+            bool result = true;
+            try
+            {
+                BCategoria = new BCategoria();
+                if (this.ID > 0)
+                {
+                    result = BCategoria.Eliminar(this.ID);
+                } 
+
+                if (!result)
+                {
+                    MessageBox.Show("Error al eliminar");
+                }
+
+                Close();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Comunicarse con el administrador");
+            }
+            finally
+            {
+                BCategoria = null;
+            }
         }
 
         private void BtnCerrar_Click(Object sender, RoutedEventArgs e) 
